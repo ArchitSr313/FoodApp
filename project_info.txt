@@ -1,0 +1,24 @@
+                                        Food Ordering App
+- initialize package.json
+- install parcel as dev dependency
+- install react and react dom
+- import react and react dom in app.js
+- add type="module" in script tag in index.html
+- remove main key from package.json to change default entry point
+- add browserlist key in package.json to add supported browsers
+- add scripts in package.json for projects commands
+
+                                        React Components
+* Header
+  - Logo
+  - Nav items
+* Body
+  - Search
+  - Restaurant Container
+   - Restaurant Card
+    - img, name, cuisine, price
+* Footer
+  - Copyright
+  - Links
+  - Address
+  - Contacts
