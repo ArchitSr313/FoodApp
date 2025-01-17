@@ -4,6 +4,9 @@ import ReactDOM from "react-dom/client";
 // import food_1 from "./assets/food_1.jpg";
 import Header from "../components/Header";
 import Body from "../components/Body";
+import About from "../components/About";
+import Error from "../components/Error";
+import { createBrowserRouter, RouterProvider } from "react-router";
 
 const AppLayout=()=>{
     return (
@@ -14,7 +17,21 @@ const AppLayout=()=>{
     )
 };
 
+const appRouter = createBrowserRouter([
+    {
+        path:"/",
+        element:<AppLayout/>,
+        errorElement:<Error/>
+    },
+    {
+        path:"/about",
+        element:<About/>,
+    },
+]);
+
 
 const root=ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<AppLayout/>);
+// root.render(<AppLayout/>);
+root.render(<RouterProvider router={appRouter}/>);
+
