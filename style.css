@@ -79,3 +79,19 @@
 .search-container{
     margin-right: 10px;
 }
+
+/* Restaurant Info Page */
+.res-info{
+    text-align: center;
+}
+.res-menu{
+    background-color: beige;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.res-menu li{
+    margin-top: 1rem;
+}

@@ -2,6 +2,7 @@
 import ResCard from "./ResCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./shimmer";
+import { Link } from "react-router";
 
 const Body=()=>{
     //local state variable - super powerful variable
@@ -71,7 +72,8 @@ const Body=()=>{
 
                 {/* Using state variable to make interactive page */}
                 {copyListOfRestaurant.map((restaurant)=>(
-                <ResCard key={restaurant.info.id} resData={restaurant}/>))}
+                <Link to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id}><ResCard resData={restaurant}/></Link>
+                ))}
             </div>
         </div>
     )
