@@ -95,3 +95,9 @@
 .res-menu li{
     margin-top: 1rem;
 }
+
+/* UserClass Card */
+.user-card{
+    padding: 10px;
+    border: 1px solid red;
+}
