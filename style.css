@@ -1,3 +1,7 @@
+@import "tailwindcss";
+
+
+/* 
 .header{
     display: flex;
     border: 1px dashed red;
@@ -6,9 +10,9 @@
 .logo{
     width: 100px;
 }
-/* .nav-items{
+.nav-items{
     padding-left: 10px;
-} */
+}
  .res-container{
     display: flex;
     flex-wrap: wrap;
@@ -24,13 +28,13 @@
 }
 .res-card{
     width: 200px;
-    /* height: 350px; */
+    height: 350px;
     margin: 10px;
     padding: 5px;
     border-radius: 10px;
-    /* border: 1px solid red; */
+    border: 1px solid red;
     word-wrap: break-word;
-    /* white-space: normal; */
+    white-space: normal;
 }
 .res-card:hover{
     cursor: pointer;
@@ -43,18 +47,18 @@
     width: 100%;
     border-radius: 10px;
 }
-/* .res-card-info{
+.res-card-info{
     margin: 10px;
 }
 #cuisine_info{ 
     display: flex;
     flex-wrap: wrap;
-} */
+}
 .filter{
     margin: 10px;
 }
 
-/* shimmer ui */
+shimmer ui
 .shimmer-container{
     display: flex;
     flex-wrap: wrap;
@@ -72,7 +76,7 @@
     border-radius: 10px;
 }
 
-/* filter div */
+filter div
 .filter{
     display: flex;
 }
@@ -80,7 +84,7 @@
     margin-right: 10px;
 }
 
-/* Restaurant Info Page */
+Restaurant Info Page
 .res-info{
     text-align: center;
 }
@@ -96,8 +100,8 @@
     margin-top: 1rem;
 }
 
-/* UserClass Card */
+UserClass Card
 .user-card{
     padding: 10px;
     border: 1px solid red;
-}
+}  */

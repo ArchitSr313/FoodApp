@@ -50,12 +50,12 @@ const Body=()=>{
 
     return (listOfRestaurant.length === 0) ? <Shimmer/> : (
         <div className="body">
-            <div className="filter">
+            <div className="filter flex items-center font-medium">
                 <div className="search-container">
-                    <input type="text" className="search-box" value={searchText} onChange={(e)=>{
+                    <input type="text" className="search-box border m-4" value={searchText} onChange={(e)=>{
                         setsearchText(e.target.value);
                     }}/>
-                    <button onClick={()=>{
+                    <button className="px-4 py-2 bg-amber-300 rounded-2xl" onClick={()=>{
                         //filter the restaurant cards and update the UI
                         //we need search text to do so
                         // console.log(searchText);
@@ -65,12 +65,14 @@ const Body=()=>{
                         setCopyListOfRestaurant(filteredRestaurant);
                     }}>Search</button>
                 </div>
-                <button className="filter-btn" onClick={()=>{
-                    const filterdList=listOfRestaurant.filter((res)=> res.info.avgRating > 4 );
-                    setCopyListOfRestaurant(filterdList);
-                }}>Top Rated Restaurants</button>
+                <div className="m-4">
+                    <button className="filter-btn px-4 py-2 bg-amber-400 rounded-2xl" onClick={()=>{
+                        const filterdList=listOfRestaurant.filter((res)=> res.info.avgRating > 4 );
+                        setCopyListOfRestaurant(filterdList);
+                    }}>Top Rated Restaurants</button>
+                </div>
             </div>
-            <div className="res-container">
+            <div className="res-container flex flex-wrap">
                 {/* {resList.map((restaurant)=>(
                 <ResCard key={restaurant.info.id} resData={restaurant}/>))} */}
 
