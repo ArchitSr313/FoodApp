@@ -1,5 +1,5 @@
 // import resList from "../utils/mockData";
-import ResCard from "./ResCard";
+import ResCard, {withNonVegLabel} from "./ResCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router";
@@ -15,6 +15,8 @@ const Body=()=>{
 
 
     const [searchText, setsearchText]=useState("");
+
+    const ResCardNonVeg = withNonVegLabel(ResCard);
 
 
     //normal js varible and updation
@@ -38,7 +40,7 @@ const Body=()=>{
         setCopyListOfRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
 
-    console.log("body rendered");
+    console.log("body rendered", listOfRestaurant);
 
     //conditional rendering - when rendering is done based on some condition
     // if(listOfRestautant.length===0){
@@ -78,7 +80,14 @@ const Body=()=>{
 
                 {/* Using state variable to make interactive page */}
                 {copyListOfRestaurant.map((restaurant)=>(
-                <Link to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id}><ResCard resData={restaurant}/></Link>
+                <Link to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id}>
+                    {/* if the restaurant has veg label then display normal components otherwise display
+                        high order components with non-veg label on it
+                    */}
+                    { restaurant.info.veg ? (<ResCard resData={restaurant}/>) : 
+                    (<ResCardNonVeg resData ={restaurant}/>)
+                    }
+                </Link>
                 ))}
             </div>
         </div>

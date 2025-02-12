@@ -17,4 +17,16 @@ const ResCard=(props)=>{
     )
 };
 
+// High Order Components - takes a component as input and returns enhanced component
+export const withNonVegLabel = (ResCard) =>{
+    return (props)=>{
+        return (
+            <div>
+                <label className="absolute bg-red-600 text-sm text-white ml-8 mt-4 p-1 rounded-2xl">Non-Veg</label>
+                <ResCard {...props}/>
+            </div>
+        );
+    };
+};
+
 export default ResCard;
