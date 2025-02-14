@@ -5,11 +5,11 @@ const ResCard=(props)=>{
     const {name, cuisines, avgRating,cloudinaryImageId}=resData?.info;
     const {slaString}=resData.info.sla;
     return (
-        <div className="res-card w-[250px] m-4 p-4 bg-gray-300 rounded-xl hover:bg-amber-300 shadow">
+        <div className="res-card w-[250px] m-4 p-4 bg-gray-300 rounded-xl hover:bg-gray-200 shadow-lg">
             <img className="res-img rounded-md" src={IMAGE_CDN + cloudinaryImageId}/>
             {/* <div className="res-card-info"> */}
                 <h3 className="py-2 font-bold text-l">{name}</h3>
-                <h4 id="cuisine_info">{cuisines.join(",")}</h4>
+                <h4 id="cuisine_info" className="py-2">{cuisines.join(", ")}</h4>
                 <h4>{avgRating} 🌟</h4>
                 <h4>{slaString}</h4>
             {/* </div> */}
