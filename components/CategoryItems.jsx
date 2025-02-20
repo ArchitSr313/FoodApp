@@ -1,5 +1,13 @@
+import { useDispatch } from "react-redux";
 import { IMAGE_CDN } from "../utils/constant";
+import { addItems } from "../utils/cartSlice";
 const CategoryItems = ({items})=>{
+    const dispatch = useDispatch();
+    const handleAddItems = (item)=>{
+        //dispatch an action
+        dispatch(addItems(item));
+    };
+
     return (
         <div>
                 {items.map((item)=>
@@ -9,11 +17,12 @@ const CategoryItems = ({items})=>{
                         <span className="font-semibold"> - ₹ {item.card.info.price/100}</span>
                         <p className="text-green-600 font-medium">{item.card.info.ratings.aggregatedRating.rating} 🌟</p>
                     </div>
-                    <div className="w-3/12">
-                        <img src={IMAGE_CDN + item.card.info.imageId}/>
-                        {/* <div className="absolute mb-16">
-                            <button className="bg-black text-white p-2 rounded-lg">Add +</button>
-                        </div> */}
+                    <div className="w-3/12 relative">
+                        <img className="w-full" src={IMAGE_CDN + item.card.info.imageId}/>
+                        <button className="absolute top-0 left-0 bg-black text-white p-1 rounded-lg" 
+                        onClick={()=> handleAddItems(item)}>
+                            Add +
+                        </button>
                     </div>
                 </div>
                 )

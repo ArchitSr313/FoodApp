@@ -1,9 +1,10 @@
 // import resList from "../utils/mockData";
 import ResCard, {withNonVegLabel} from "./ResCard";
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body=()=>{
     //local state variable - super powerful variable
@@ -17,7 +18,6 @@ const Body=()=>{
     const [searchText, setsearchText]=useState("");
 
     const ResCardNonVeg = withNonVegLabel(ResCard);
-
 
     //normal js varible and updation
     // let list=12;
@@ -50,6 +50,8 @@ const Body=()=>{
     const onlineStatus = useOnlineStatus();
     if(onlineStatus === false) return (<h1>It seems you are offline. Check Your Internet 🌐 Connection !!!</h1>)
 
+    const {loggedUser, setUserName} = useContext(UserContext);
+
     return (listOfRestaurant.length === 0) ? <Shimmer/> : (
         <div className="body">
             <div className="filter flex items-center font-medium">
@@ -72,6 +74,12 @@ const Body=()=>{
                         const filterdList=listOfRestaurant.filter((res)=> res.info.avgRating > 4 );
                         setCopyListOfRestaurant(filterdList);
                     }}>Top Rated Restaurants</button>
+                </div>
+                <div className="bg-amber-300 p-2 rounded-lg">
+                    <label> UserName : </label>
+                    <input className="border border-black rounded-lg pl-2 bg-amber-50" 
+                    value={loggedUser} 
+                    onChange={(e)=> setUserName(e.target.value) }/>
                 </div>
             </div>
             <div className="res-container flex flex-wrap">

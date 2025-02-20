@@ -1,7 +1,5 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
-// import logo from "./assets/food_app_logo.png";
-// import food_1 from "./assets/food_1.jpg";
 import Header from "../components/Header";
 import Body from "../components/Body";
 import About from "../components/About";
@@ -10,15 +8,31 @@ import Contact from "../components/Contact";
 import Cart from "../components/Cart";
 import ResInfo from "../components/ResInfo";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
+import UserContext from "../utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "../utils/appStore";
 // import Grocery from "../components/Grocery";
 
 const AppLayout=()=>{
+    const [userName, setUserName] = useState(null);
+
+    // authentication
+    useEffect(()=>{
+        //make an API call and send username and passoword
+        const data = {name : "Archit"};
+        setUserName(data.name);
+    },[]);
+
     return (
+        <Provider store={appStore}>
+        <UserContext.Provider value={{loggedUser : userName, setUserName}}>
         <div className="app">
             <Header/>
             <Outlet/>
         </div>
-    )
+        </UserContext.Provider>
+        </Provider>
+    );
 };
 
 //Lazy Loading
